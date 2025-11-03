@@ -37,7 +37,8 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
 
                 Thread.Sleep(refreshMS);
             }
-
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         //m1
@@ -75,8 +76,8 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
         static void swimShark()
         {
 
-            horImpShark = 100;
-            vertImpShark = 50;
+            horImpShark = 20;
+            vertImpShark = 20;
 
             if (horPosShark == horPosPlayer && vertPosShark == vertPosPlayer)
             {
@@ -158,8 +159,8 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
         static void waterDraw()
         {
 
-            int rows = 200;
-            int cols = 200;
+            int mapx = 200;
+            int mapy = 200;
             Console.BackgroundColor = ConsoleColor.Blue;
 
 

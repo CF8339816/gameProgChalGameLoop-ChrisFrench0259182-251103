@@ -31,7 +31,6 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
             {
 
                 playerInputs();
-                swimShark();
                 Update();
                 Draw();
 
@@ -75,25 +74,34 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
         static void swimShark()
         {
 
-            horImpPlayer = 100;
-            vertImpPlayer = 50;
+            horImpShark = 100;
+            vertImpShark = 50;
+
+            if (horPosShark == horPosPlayer && vertPosShark == vertPosPlayer)
+            {
+                return;
+            }
 
 
             if (horPosShark > horPosPlayer)
             {
                 horImpShark -= 1;
+                Thread.Sleep(3000);
             }
             if (horPosShark < horPosPlayer)
             {
                 horImpShark += 1;
+                Thread.Sleep(3000);
             }
-            if (horPosShark > horPosPlayer)
+            if (vertPosShark > vertPosPlayer)
             {
-                horImpShark -= 1;
+                vertImpShark -= 1;
+                Thread.Sleep(3000);
             }
-            if (horPosShark < horPosPlayer)
+            if (vertPosShark < vertPosPlayer)
             {
-                horImpShark += 1;
+                vertImpShark += 1;
+                Thread.Sleep(3000);
             }
         }
 
@@ -123,7 +131,7 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
         //m3B
         static void playerDraw()
         {
-            Console.SetCursorPosition(0, 0);
+            Console.SetCursorPosition(horPosPlayer, vertPosPlayer);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("O");
 
@@ -134,7 +142,10 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
         //m3c
         static void sharkDraw()
         {
-            Console.SetCursorPosition(0, 0);
+            swimShark();
+
+
+            Console.SetCursorPosition(horPosShark, vertPosShark);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("^");
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,10 +16,10 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
         static int horPosPlayer = 0;
         static int vertPosPlayer = 0;
 
-        static int horImpShark = 0;
-        static int vertImpShark = 0;
-        static int horPosShark = 0;
-        static int vertPosShark = 0;
+        static float horImpShark = 0;
+        static float vertImpShark = 0;
+        static float horPosShark = 0;
+        static float vertPosShark = 0;
 
         static int refreshMS = 20;
         static bool isPlaying = true;
@@ -85,23 +86,23 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
 
             if (horPosShark > horPosPlayer)
             {
-                horImpShark -= 1;
-                Thread.Sleep(3000);
+                horImpShark -= .25f;
+               
             }
             if (horPosShark < horPosPlayer)
             {
-                horImpShark += 1;
-                Thread.Sleep(3000);
+                horImpShark += .25f;
+                
             }
             if (vertPosShark > vertPosPlayer)
             {
-                vertImpShark -= 1;
-                Thread.Sleep(3000);
+                vertImpShark -= .25f;
+                
             }
             if (vertPosShark < vertPosPlayer)
             {
-                vertImpShark += 1;
-                Thread.Sleep(3000);
+                vertImpShark += .25f;
+                
             }
         }
 
@@ -123,6 +124,7 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
         //m3
         static void Draw()
         {
+            waterDraw();
             playerDraw();
 
             sharkDraw();
@@ -145,10 +147,20 @@ namespace gameProgChalGameLoop_ChrisFrench0259182_251103
             swimShark();
 
 
-            Console.SetCursorPosition(horPosShark, vertPosShark);
+            Console.SetCursorPosition((int)horPosShark, (int)vertPosShark);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("^");
 
+        }
+
+
+        //m3d
+        static void waterDraw()
+        {
+
+            int rows = 200;
+            int cols = 200;
+            Console.BackgroundColor = ConsoleColor.Blue;
 
 
         }
